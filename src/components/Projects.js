@@ -12,6 +12,11 @@ const Projects = () => {
         "assets/img/projects/pos/pos1.jpg",
         "assets/img/projects/pos/pos2.jpg",
         "assets/img/projects/pos/pos3.jpg",
+        "assets/img/projects/pos/pos4.png",
+        "assets/img/projects/pos/pos5.png",
+        "assets/img/projects/pos/pos6.png",
+        "assets/img/projects/pos/pos7.png",
+        "assets/img/projects/pos/pos8.png",
       ],
     },
   ]);
@@ -84,7 +89,7 @@ const Projects = () => {
                 {modalValues.imgpreviews.map((d) => (
                   <Carousel.Item>
                     <img
-                      className="d-block w-100"
+                      className="w-100"
                       src={d}
                       alt="First slide"
                     />
