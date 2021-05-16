@@ -5,7 +5,7 @@ const Experience = () => {
   const [experiences, setExperiences] = useState([
     {
       id: 1,
-      position: "IT Staff",
+      position: "IT Operations",
       company: "GS",
       desc: "blah blah blah",
       date: "February 2020 - Present",

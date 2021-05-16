@@ -8,6 +8,10 @@ const MyNavbar = () => {
       text: "About",
     },
     {
+      href: "#projects",
+      text: "Projects",
+    },
+    {
       href: "#experience",
       text: "Experience",
     },
@@ -25,7 +29,7 @@ const MyNavbar = () => {
     },
     {
       href: "#awards",
-      text: "Awards",
+      text: "Certifications",
     },
   ]);
   return (

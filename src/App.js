@@ -8,6 +8,7 @@ import Education from './components/Education';
 import Skills from './components/Skills';
 import Interests from './components/Interests';
 import Certifications from './components/Certifications';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <MyNavbar />
       <Container fluid className="p-0">
         <About />
+        <hr className="m-0" />
+        <Projects />
         <hr className="m-0" />
         <Experience />
         <hr className="m-0" />
