@@ -8,7 +8,7 @@ const Education = () => {
       position: "Cagayan State University", //School Name
       company: "BACHELOR OF SCIENCE", //Course
       desc: " INFORMATION TECHNOLOGY",
-      date: "February 2020 - Present",
+      date: "2010 - 2015",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const Education = () => {
       id: 1,
       position: "TUGUEGARAO WEST CENTRAL ELEMENTARY SCHOOL", //School Name
       company: "GS", //Course
-      desc: "blah blah blah",
+      desc: "",
       date: "February 2020 - Present",
     },
   ]);

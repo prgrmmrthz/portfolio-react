@@ -21,8 +21,6 @@ function App() {
         <hr className="m-0" />
         <Experience />
         <hr className="m-0" />
-        <Education />
-        <hr className="m-0" />
         <Skills />
         <hr className="m-0" />
         <Interests />

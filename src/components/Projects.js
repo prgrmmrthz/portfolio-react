@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Carousel } from "react-bootstrap";
+import { Container, Carousel, Image } from "react-bootstrap";
 import MyModal from "./MyModal";
 
 const Projects = () => {
@@ -7,17 +7,18 @@ const Projects = () => {
   const [projs, setProjs] = useState([
     {
       title: "Intelligent Point Of Sale System",
-      img: "assets/img/projects/pos/intl pos.png",
+      img: "assets/img/projects/intl pos.png",
       imgpreviews: [
-        "assets/img/projects/pos/pos1.jpg",
-        "assets/img/projects/pos/pos2.jpg",
-        "assets/img/projects/pos/pos3.jpg",
-        "assets/img/projects/pos/pos4.png",
-        "assets/img/projects/pos/pos5.png",
-        "assets/img/projects/pos/pos6.png",
-        "assets/img/projects/pos/pos7.png",
-        "assets/img/projects/pos/pos8.png",
+        "assets/img/projects/pos/pos4.jpg",
+        "assets/img/projects/pos/pos5.jpg",
+        "assets/img/projects/pos/pos7.jpg",
+        "assets/img/projects/pos/pos8.jpg",
       ],
+      desc: `Intelligent Point Of Sale System or simply INTL POS is a Web Application
+       built on top of Angular (frontend) and C# Web API + MySql (backend)
+       that brings convenience to store owners and cashiers in making transactions on
+        products, discounts, cashiering / sales, generate barcode and sales reports.
+        This project is already deployed and everyday used by many of my clients in Luzon`
     },
   ]);
   const [modalValues, setModalValues] = useState({
@@ -25,11 +26,12 @@ const Projects = () => {
     imgpreviews: [],
   });
 
-  const handleSetModalState = ({ title, imgpreviews }) => {
+  const handleSetModalState = ({ title, imgpreviews, desc }) => {
     setModalValues({
       ...modalValues,
       title: title,
       imgpreviews: imgpreviews,
+      desc: desc
     });
     console.debug(modalValues);
   };
@@ -85,22 +87,16 @@ const Projects = () => {
         <Container>
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <Carousel>
+              <Carousel interval="3000" nextIcon={<i class="fas fa-arrow-right"></i>}>
                 {modalValues.imgpreviews.map((d) => (
                   <Carousel.Item>
-                    <img
-                      className="w-100"
-                      src={d}
-                      alt="First slide"
-                    />
+                    <Image src={d} thumbnail rounded />
                   </Carousel.Item>
                 ))}
               </Carousel>
+              <hr className="m-4" />
               <p className="mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Mollitia neque assumenda ipsam nihil, molestias magnam,
-                recusandae quos quis inventore quisquam velit asperiores, vitae?
-                Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                {modalValues.desc}
               </p>
             </div>
           </div>
