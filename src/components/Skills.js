@@ -14,10 +14,9 @@ const Skills = () => {
   ]);
 
   const [workflow, setWorkflow]= useState([
-      "Mobile-First, Responsive Design",
+      "React JS","Node Package Manager","GitHub/Git","C# Web API","C#.Net","Angular 8","MySQL","TypeScript",
+      "Object oriented Programming","Functional Programming",
       "Cross Browser Testing & Debugging",
-      "Cross Functional Teams",
-      "Agile Development & Scrum",
       "Parallel testing"
   ]);
 
@@ -25,9 +24,7 @@ const Skills = () => {
     <section className="resume-section" id="skills">
       <div className="resume-section-content">
         <h2 className="mb-5">Skills</h2>
-        <div className="subheading mb-3">Programming Languages & Tools</div>
-        <ListInlineIcons dataList={icons} icon="fas fa-check" />
-        <div className="subheading mb-3">Workflow</div>
+        <div className="subheading mb-3">Programming Languages, Tools & Workflow</div>
         <CheckList dataList={workflow} icon="fas fa-check" />
       </div>
     </section>

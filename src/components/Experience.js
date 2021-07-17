@@ -7,15 +7,19 @@ const Experience = () => {
       id: 1,
       position: "IT Operations",
       company: "Golden Seed Inc",
-      desc: "Responsible for development of the installation and maintenance of CCTV Systems, network devices, installation / updates / repair computer software systems and hardware components. My function also includes development of the company’s official website and it’s internal inventory system I used Angular for frontend and C# web APi + mysql for back end.",
+      desc: "Responsible for development of the installation and maintenance of CCTV Systems, network devices, installation / updates / repair computer software systems and hardware components. My function also includes development of the company’s official website and it’s internal inventory system I used React JS for frontend and C# web APi + MySQL for backend.",
       date: "February 2020 - Present",
     },
     {
       id: 2,
-      position: "Freelance Developer",
+      position: "Freelance System Developer",
       company: "",
-      desc: "Intelligent Point Of Sale System or simply INTL POS is a Web Application built on top of Angular (frontend) and C# Web API + MySql (backend) that brings convenience to store owners and cashiers in making transactions on products, discounts, cashiering / sales, generate barcode and sales reports. This project is already deployed and everyday used by many of my clients in Luzon",
-      date: "June 2019 - Present",
+      desc: `Specialized in design, development, installation, implementation, modification, and support of new or existing applications software.
+       Analyzing functional and systems requirements, developing application and database architecture and
+        design, writing code, designing user interfaces,  interactive applications,
+         working with users to test, debug, and troubleshoot applications, assuring software and systems quality and functionality,
+          integrating hardware and software components, writing and maintaining program documentation.`,
+      date: "July 2018 - Present",
     },
     {
       id: 3,

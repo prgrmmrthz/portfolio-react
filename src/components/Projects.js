@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Container, Carousel, Image } from "react-bootstrap";
-import MyModal from "./MyModal";
+import { SRLWrapper } from "simple-react-lightbox";
+import Ltb from "./Ltb";
 
 const Projects = () => {
   const [openModal, setOpenModal] = useState(false);
   const [projs, setProjs] = useState([
     {
+      code: "iNTL POS",
       title: "Intelligent Point Of Sale System",
       img: "assets/img/projects/intl pos.png",
       imgpreviews: [
@@ -14,94 +15,106 @@ const Projects = () => {
         "assets/img/projects/pos/pos7.jpg",
         "assets/img/projects/pos/pos8.jpg",
       ],
-      desc: `Intelligent Point Of Sale System or simply INTL POS is a Web Application
+      desc: `Intelligent Point Of Sale System or simply (iNTL POS) is a Web Application
        built on top of Angular (frontend) and C# Web API + MySql (backend)
        that brings convenience to store owners and cashiers in making transactions on
         products, discounts, cashiering / sales, generate barcode and sales reports.
-        This project is already deployed and everyday used by many of my clients in Luzon`
+        This project is already deployed and everyday used by many of my clients in Luzon`,
+    },
+    {
+      code: "iNTL INVENT",
+      title: "Intelligent Inventory System",
+      img: "assets/img/projects/intl invent.png",
+      imgpreviews: [
+        "assets/img/projects/invent/c1.jpg",
+        "assets/img/projects/invent/c2.jpg",
+        "assets/img/projects/invent/c3.jpg",
+        "assets/img/projects/invent/c4.jpg",
+        "assets/img/projects/invent/c5.jpg",
+        "assets/img/projects/invent/c6.jpg",
+      ],
+      desc: `Intelligent Inventory System or simply (iNTL INVENT) is a Web Application
+       built on top of React JS (frontend) and C# Web API + MySql (backend)
+       primarilly used for for tracking inventory levels, orders, sales and deliveries.
+       It can also be used in the manufacturing industry to create a work order, bill of
+        materials and other production-related documents.`,
+    },
+    {
+      code: "iNTL GRADING",
+      title: "Intelligent Grading System",
+      img: "assets/img/projects/intl grading.png",
+      imgpreviews: [
+        "assets/img/projects/grading/c1.jpg",
+        "assets/img/projects/grading/c2.jpg",
+        "assets/img/projects/grading/c3.jpg",
+        "assets/img/projects/grading/c4.jpg",
+      ],
+      desc: `Intelligent Grading System or simply iNTL Grading is a Web Application
+       built on top of React JS (frontend) and C# Web API + MySql (backend)
+       that brings convenience to teacher in marking their students grade quarterly.
+       The system then plot it to excel file template in which an end-user would easily customize the card`,
+    },
+    {
+      code: "iNTL SMS Notif",
+      title: "Intelligent SMS Notification",
+      img: "assets/img/projects/intl sms.png",
+      imgpreviews: ['assets/img/projects/sms/c1.jpg'],
+      desc: `Intelligent SMS Notification or simply INTL SMS Notif is a Web Application
+       built on top of C#.Net (frontend) and MySql (backend).Used for sending short message service (SMS) or text messages in bulk to many
+         recipients stored in a Mysql database. This is useful for sending bulk SMS marketing blasts or automating your
+            transactional SMS messages.`,
     },
   ]);
-  const [modalValues, setModalValues] = useState({
-    title: "",
-    imgpreviews: [],
-  });
-
-  const handleSetModalState = ({ title, imgpreviews, desc }) => {
-    setModalValues({
-      ...modalValues,
-      title: title,
-      imgpreviews: imgpreviews,
-      desc: desc
-    });
-    console.debug(modalValues);
-  };
 
   return (
-    <div>
-      <section className="page-section portfolio" id="projects">
-        <div className="container">
-          <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
-            Projects
-          </h2>
+    <div id="projects">
+      <div class="container">
+        <div class="text-center mt-5">
+          <h1>PROJECTS</h1>
+        </div>
+      </div>
+      {projs.map((proj) => (
+        <div>
 
-          <div className="divider-custom">
-            <div className="divider-custom-line"></div>
-            <div className="divider-custom-icon">
-              <i className="fas fa-star"></i>
-            </div>
-            <div className="divider-custom-line"></div>
-          </div>
-
-          <div className="row justify-content-center">
-            {projs.map((p) => (
-              <div
-                className="col-md-6 col-lg-4 mb-5"
-                onClick={() => {
-                  handleSetModalState(p);
-                  setOpenModal(true);
-                }}
-              >
-                <div
-                  className="portfolio-item mx-auto"
-                  data-toggle="modal"
-                  data-target="#portfolioModal1"
-                >
-                  <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                    <div className="portfolio-item-caption-content text-center text-white">
-                      <i className="fas fa-plus fa-3x"></i>
-                    </div>
+          <section className="py-5">
+            <div className="container px-4 px-lg-5 my-5">
+              <div className="row gx-4 gx-lg-5 align-items-center">
+                <div className="col-md-6">
+                  <img
+                    className="card-img-top mb-5 mb-md-0"
+                    src={proj.img}
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-6">
+                  <h1 className="display-5 fw-bolder">{proj.code}</h1>
+                  <div className="fs-5 mb-5">
+                    <span>{proj.title}</span>
                   </div>
-                  <img className="img-fluid" src={p.img} alt="..." />
+                  <p className="lead">{proj.desc}</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <MyModal
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-        title={modalValues.title}
-      >
-        <Container>
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <Carousel interval="3000" nextIcon={<i class="fas fa-arrow-right"></i>}>
-                {modalValues.imgpreviews.map((d) => (
-                  <Carousel.Item>
-                    <Image src={d} thumbnail rounded />
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-              <hr className="m-4" />
-              <p className="mb-5">
-                {modalValues.desc}
-              </p>
             </div>
+          </section>
+
+          <div id="portfolio">
+
+            <div className="container-fluid p-0">
+              <div className="row g-0">
+                {proj.imgpreviews.map((imgsrc) => (
+                  <div className="col-lg-4 col-sm-6">
+                      <Ltb pic={imgsrc} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
-        </Container>
-      </MyModal>
+          <br />
+          <br />
+          <br />
+        </div>
+      ))}
     </div>
   );
 };

@@ -29,7 +29,7 @@ const About = () => {
         </div>
         <p className="lead mb-5">
         I am graduate of Bachelor of Science in Information Technology major in programming. Skilled in many computer software applications, hardware, network components, databases and programming languages.
-        Experienced Web Developer, IT Specialist, and IT Support. Through my four years of professional experience, I have gained a good reputation for my exceptional design and usability skills, in addition to my semantically clean coding practices.
+        Experienced System / Web Developer, IT Specialist, and IT Support. Through my four years of professional experience, I have gained a good reputation for my exceptional design and usability skills, in addition to my semantically clean coding practices.
         </p>
         <LinkIconList dataList={social} />
       </div>

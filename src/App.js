@@ -9,6 +9,7 @@ import Skills from './components/Skills';
 import Interests from './components/Interests';
 import Certifications from './components/Certifications';
 import Projects from './components/Projects';
+import Ltb from './components/Ltb';
 
 function App() {
   return (
