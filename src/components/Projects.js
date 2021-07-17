@@ -54,7 +54,7 @@ const Projects = () => {
       desc: `Intelligent Grading System or simply iNTL Grading is a Web Application
        built on top of React JS (frontend) and C# Web API + MySql (backend)
        that brings convenience to teacher in marking their students grade quarterly.
-       The system then plot it to excel file template in which an end-user would easily customize the card`,
+       The system then plot it to excel file template in which an end-user would easily customize.`,
     },
     {
       code: "iNTL SMS Notif",
@@ -127,7 +127,7 @@ const Projects = () => {
         </div>
       ))}
       {isOpen && (
-          <Lightbox imagePadding={100} enableZoom={false}
+          <Lightbox imagePadding={100}
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}

@@ -14,7 +14,7 @@ const Experience = () => {
       id: 2,
       position: "Freelance System Developer",
       company: "",
-      desc: `Specialized in design, development, installation, implementation, modification, and support of new or existing applications software.
+      desc: `Design, development, installation, implementation, modification, and support of new or existing applications software.
        Analyzing functional and systems requirements, developing application and database architecture and
         design, writing code, designing user interfaces,  interactive applications,
          working with users to test, debug, and troubleshoot applications, assuring software and systems quality and functionality,
