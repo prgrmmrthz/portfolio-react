@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { SRLWrapper } from "simple-react-lightbox";
-import Ltb from "./Ltb";
+import { Image } from "react-bootstrap";
+import Lightbox from 'react-image-lightbox';
 
 const Projects = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [images, setImages] = useState([]);
   const [projs, setProjs] = useState([
     {
       code: "iNTL POS",
@@ -13,7 +15,7 @@ const Projects = () => {
         "assets/img/projects/pos/pos4.jpg",
         "assets/img/projects/pos/pos5.jpg",
         "assets/img/projects/pos/pos7.jpg",
-        "assets/img/projects/pos/pos8.jpg",
+        "assets/img/projects/pos/pos8.jpg"
       ],
       desc: `Intelligent Point Of Sale System or simply (iNTL POS) is a Web Application
        built on top of Angular (frontend) and C# Web API + MySql (backend)
@@ -31,7 +33,7 @@ const Projects = () => {
         "assets/img/projects/invent/c3.jpg",
         "assets/img/projects/invent/c4.jpg",
         "assets/img/projects/invent/c5.jpg",
-        "assets/img/projects/invent/c6.jpg",
+        "assets/img/projects/invent/c6.jpg"
       ],
       desc: `Intelligent Inventory System or simply (iNTL INVENT) is a Web Application
        built on top of React JS (frontend) and C# Web API + MySql (backend)
@@ -47,7 +49,7 @@ const Projects = () => {
         "assets/img/projects/grading/c1.jpg",
         "assets/img/projects/grading/c2.jpg",
         "assets/img/projects/grading/c3.jpg",
-        "assets/img/projects/grading/c4.jpg",
+        "assets/img/projects/grading/c4.jpg"
       ],
       desc: `Intelligent Grading System or simply iNTL Grading is a Web Application
        built on top of React JS (frontend) and C# Web API + MySql (backend)
@@ -66,6 +68,12 @@ const Projects = () => {
     },
   ]);
 
+  const handleOpenLightBox= (d,i) => {
+    setImages([...d]);
+    setPhotoIndex(i);
+    setIsOpen(true);
+  }
+
   return (
     <div id="projects">
       <div class="container">
@@ -75,7 +83,6 @@ const Projects = () => {
       </div>
       {projs.map((proj) => (
         <div>
-
           <section className="py-5">
             <div className="container px-4 px-lg-5 my-5">
               <div className="row gx-4 gx-lg-5 align-items-center">
@@ -98,23 +105,41 @@ const Projects = () => {
           </section>
 
           <div id="portfolio">
-
-            <div className="container-fluid p-0">
-              <div className="row g-0">
-                {proj.imgpreviews.map((imgsrc) => (
-                  <div className="col-lg-4 col-sm-6">
-                      <Ltb pic={imgsrc} />
-                  </div>
-                ))}
-              </div>
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                  {proj.imgpreviews.map((imgsrc, i) =>
+                    (<div class="col-lg-4 col-sm-6">
+                      <Image onClick={() => handleOpenLightBox(proj.imgpreviews, i)}
+                        thumbnail
+                        src={imgsrc}
+                        alt={proj.code + (i + 1)}
+                        srl_gallery_image="true" // Add this if your thumbnail is not recognized
+                      />
+                    </div>)
+                 )}
+                </div>
             </div>
-
           </div>
+
           <br />
           <br />
           <br />
         </div>
       ))}
+      {isOpen && (
+          <Lightbox imagePadding={100} enableZoom={false}
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => setIsOpen(false)}
+            onMovePrevRequest={() =>
+              setPhotoIndex((photoIndex + images.length -1) % images.length)
+            }
+            onMoveNextRequest={() =>
+              setPhotoIndex((photoIndex + 1) % images.length)
+            }
+          />
+        )}
     </div>
   );
 };
